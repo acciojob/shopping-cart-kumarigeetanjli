@@ -19,8 +19,3 @@ const addData = () => {
   document.getElementById('total').innerHTML = "Total Ammount " + grandtotal + " $";
   document.getElementById('myinputs').reset();
 }
-
-module.exports = addData;
-
-// button.addEventListener('click', addData);
-
