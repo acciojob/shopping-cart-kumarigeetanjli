@@ -1,4 +1,3 @@
-//your code here
 var itemName = document.getElementById("item-name-input");
 var itemQuantity = document.getElementById("item-qty-input");
 var itemPrice = document.getElementById("item-price-input");
@@ -6,12 +5,11 @@ var itemPrice = document.getElementById("item-price-input");
 var tbody = document.querySelector("tbody");
 
 var grandTotal = document.getElementById("total");
-var totalSoFar = 0;
+var grand_total = 0;
 
 var addItem = document.querySelector("#add");
 
 addItem.addEventListener("click", (event) => {
-  // otherwise it will submit the form
   event.preventDefault();
 
   let newRow = document.createElement("tr");
@@ -30,7 +28,6 @@ addItem.addEventListener("click", (event) => {
   quantity.innerText = itemQuantity.value;
   newRow.append(quantity);
 
-  // is valid item
   if (itemName.value && itemQuantity.value && itemPrice.value) {
     let total = document.createElement("td");
     total.innerText = itemPrice.value * itemQuantity.value;
@@ -38,11 +35,10 @@ addItem.addEventListener("click", (event) => {
 
     tbody.append(newRow);
 
-    totalSoFar += Number(total.innerText);
-    grandTotal.innerHTML = "Total Ammount " + totalSoFar + " $";
+    grand_total += Number(total.innerText);
+    grandTotal.innerHTML = "Grand Total: ₹ " + grand_total;
   }
 
-  // reset
   itemName.value = "";
   itemQuantity.value = "";
   itemPrice.value = "";
